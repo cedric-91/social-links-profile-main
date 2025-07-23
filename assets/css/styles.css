@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+/* 1. Define root variables */
+:root {
+	/* 1. Define color variables */
+	--clr-primary: hsl(75, 94%, 57%);
+	--clr-white: hsl(0, 0%, 100%);
+	--clr-grey-700: hsl(0, 0%, 20%);
+	--clr-grey-800: hsl(0, 0%, 12%);
+	--clr-grey-900: hsl(0, 0%, 8%);
+
+	/* 2. Define font variables */
+	--ff-primary: "Inter", sans-serif;
+
+	/* 3. Define font size variables */
+	--fs-xxs: 0.75rem; /* 12px */
+	--fs-xs: 0.875rem; /* 14px */
+	--fs-sm: 1rem; /* 16px */
+	--fs-md: 1.125rem; /* 18px */
+	--fs-lg: 1.25rem; /* 20px */
+	--fs-xl: 1.5rem; /* 24px */
+	--fs-xxl: 2rem; /* 32px */
+
+	/* 4. Define font weight variables */
+	--fw-regular: 400;
+	--fw-medium: 600;
+	--fw-bold: 700;
+
+	/* 5. Define border radius */
+	--br-radius: 0.5rem; /* 8px */
+
+	/* 6. Define spacing variables */
+	--sp-xs: 0.25rem; /* 4px */
+	--sp-sm: 0.5rem; /* 8px */
+	--sp-md: 1rem; /* 16px */
+	--sp-ml: 1.25rem; /* 20px */
+	--sp-lg: 1.5rem; /* 24px */
+}
+
+/* Josh Comeau CSS Reset */
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+	margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		interpolate-size: allow-keywords;
+	}
+}
+
+body {
+	/* 4. Add accessible line-height */
+	line-height: 1.5;
+	/* 5. Improve text rendering */
+	-webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+	text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-wrap: balance;
+}
+
+/* CUSTOM STYLES */
+html,
+body {
+	min-height: 100svh;
+	font-family: var(--ff-primary);
+	font-optical-sizing: auto;
+	font-style: normal;
+	font-size: 1rem;
+}
+body {
+	display: grid;
+	place-items: center;
+	color: var(--clr-white);
+	background-color: var(--clr-grey-900);
+}
+article {
+	display: grid;
+	place-items: center;
+	width: min(100%, calc(383px - 23px));
+	background-color: var(--clr-grey-800);
+	min-height: max-content;
+	border-radius: var(--br-radius);
+	padding-block: 2.5rem;
+	padding-inline: 2.6rem;
+	gap: var(--sp-lg);
+}
+img {
+	object-fit: cover;
+	font-style: italic;
+	width: 80px;
+	height: 80px;
+	border-radius: 100%;
+}
+.profile,
+.socials {
+	display: grid;
+	place-items: center;
+	width: 100%;
+}
+.profile {
+	gap: var(--sp-ml);
+}
+.profile__details {
+	display: grid;
+	gap: var(--sp-xs);
+}
+.profile__header {
+	font-weight: var(--fw-medium);
+}
+.location {
+	color: var(--clr-primary);
+	font-size: var(--fs-xs);
+	font-weight: var(--fw-medium);
+	text-align: center;
+}
+.socials {
+	gap: var(--sp-lg);
+}
+.socials__details {
+	text-align: center;
+	font-size: var(--fs-xs);
+	width: 100%;
+}
+.social-links {
+	--default-h: 43px;
+
+	display: grid;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	gap: var(--sp-md);
+}
+.social-links__item {
+	text-align: center;
+	background-color: var(--clr-grey-700);
+	min-height: var(--default-h);
+	line-height: var(--default-h);
+	border-radius: var(--br-radius);
+	font-weight: var(--fw-medium);
+}
+.social-links__item:hover {
+	background-color: var(--clr-primary);
+	color: var(--clr-grey-800);
+	cursor: pointer;
+}
