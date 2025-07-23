@@ -27,7 +27,8 @@
 	--fw-bold: 700;
 
 	/* 5. Define border radius */
-	--br-radius: 0.5rem; /* 8px */
+	--br-radius-xs: 0.5rem; /* 8px */
+	--br-radius-lg: 50%; /* 50% for circular elements */
 
 	/* 6. Define spacing variables */
 	--sp-xs: 0.25rem; /* 4px */
@@ -127,7 +128,7 @@ article {
 	width: min(100%, calc(383px - 23px));
 	background-color: var(--clr-grey-800);
 	min-height: max-content;
-	border-radius: var(--br-radius);
+	border-radius: var(--br-radius-xs);
 	padding-block: 2.5rem;
 	padding-inline: 2.6rem;
 	gap: var(--sp-lg);
@@ -137,7 +138,7 @@ img {
 	font-style: italic;
 	width: 80px;
 	height: 80px;
-	border-radius: 100%;
+	border-radius: var(--br-radius-lg);
 }
 .profile,
 .socials {
@@ -180,12 +181,16 @@ img {
 	gap: var(--sp-md);
 }
 .social-links__item {
+	--t-speed: 0.5s;
+
 	text-align: center;
 	background-color: var(--clr-grey-700);
 	min-height: var(--default-h);
 	line-height: var(--default-h);
-	border-radius: var(--br-radius);
+	border-radius: var(--br-radius-xs);
 	font-weight: var(--fw-medium);
+	transition: background-color var(--t-speed) linear,
+		color var(--t-speed) cubic-bezier(0.77, 0, 0.18, 1);
 }
 .social-links__item:hover {
 	background-color: var(--clr-primary);
