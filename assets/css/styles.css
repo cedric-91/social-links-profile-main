@@ -28,13 +28,14 @@
 
 	/* 5. Define border radius */
 	--br-radius-xs: 0.5rem; /* 8px */
+	--br-radius-sm: 0.75rem; /* 12px */
 	--br-radius-lg: 50%; /* 50% for circular elements */
 
 	/* 6. Define spacing variables */
 	--sp-xs: 0.25rem; /* 4px */
 	--sp-sm: 0.5rem; /* 8px */
 	--sp-md: 1rem; /* 16px */
-	--sp-ml: 1.25rem; /* 20px */
+	--sp-md-l: 1.25rem; /* 20px */
 	--sp-lg: 1.5rem; /* 24px */
 }
 
@@ -128,7 +129,7 @@ article {
 	width: min(100%, calc(383px - 23px));
 	background-color: var(--clr-grey-800);
 	min-height: max-content;
-	border-radius: var(--br-radius-xs);
+	border-radius: var(--br-radius-sm);
 	padding-block: 2.5rem;
 	padding-inline: 2.6rem;
 	gap: var(--sp-lg);
@@ -147,7 +148,7 @@ img {
 	width: 100%;
 }
 .profile {
-	gap: var(--sp-ml);
+	gap: var(--sp-md-l);
 }
 .profile__details {
 	display: grid;
@@ -188,11 +189,16 @@ img {
 	min-height: var(--default-h);
 	line-height: var(--default-h);
 	border-radius: var(--br-radius-xs);
+	font-size: var(--fs-xs);
 	font-weight: var(--fw-medium);
 	transition: background-color var(--t-speed) linear,
 		color var(--t-speed) cubic-bezier(0.77, 0, 0.18, 1);
+	border: 0;
+	color: var(--clr-white);
+	outline: none;
+	appearance: none;
 }
-.social-links__item:hover {
+.social-links__item:where(:hover, :focus) {
 	background-color: var(--clr-primary);
 	color: var(--clr-grey-800);
 	cursor: pointer;
