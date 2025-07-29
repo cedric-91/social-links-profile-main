@@ -37,6 +37,12 @@
 	--sp-md: 1rem; /* 16px */
 	--sp-md-l: 1.25rem; /* 20px */
 	--sp-lg: 1.5rem; /* 24px */
+	--sp-xl: 2.5rem; /* 32px */
+	--sp-xxl: 3rem; /* 48px */
+
+	/* 7. Define container width */
+	--w-mobile: 20rem; /* 320px */
+	--w-desktop: 24rem; /* 768px */
 }
 
 /* Josh Comeau CSS Reset */
@@ -122,23 +128,26 @@ body {
 	place-items: center;
 	color: var(--clr-white);
 	background-color: var(--clr-grey-900);
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
 }
 article {
 	display: grid;
 	place-items: center;
-	width: min(100%, calc(383px - 23px));
+	width: clamp(var(--w-mobile), 70vw, var(--w-desktop));
 	background-color: var(--clr-grey-800);
 	min-height: max-content;
 	border-radius: var(--br-radius-sm);
-	padding-block: 2.5rem;
-	padding-inline: 2.6rem;
+	padding-block: clamp(var(--sp-lg), 2vw + 1rem, var(--sp-xl));
+	padding-inline: clamp(var(--sp-lg), 2vw + 1rem, var(--sp-xl) + 0.1rem);
 	gap: var(--sp-lg);
 }
 img {
+	aspect-ratio: 1 / 1;
 	object-fit: cover;
 	font-style: italic;
-	width: 80px;
-	height: 80px;
+	width: 88px;
+	height: 88px;
 	border-radius: var(--br-radius-lg);
 }
 .profile,
@@ -171,19 +180,28 @@ img {
 	font-size: var(--fs-xs);
 	width: 100%;
 }
-.social-links {
+.socials__nav {
+	width: 100%;
+}
+.social-lists {
 	--default-h: 43px;
 
-	display: grid;
 	list-style: none;
+	display: grid;
 	margin: 0;
 	padding: 0;
 	width: 100%;
 	gap: var(--sp-md);
 }
-.social-links__item {
-	--t-speed: 0.5s;
+.social-lists__item {
+	display: block;
+}
+.social-lists__item__link {
+	--t-speed: 600ms;
 
+	display: block;
+	text-decoration: none;
+	color: var(--clr-white);
 	text-align: center;
 	background-color: var(--clr-grey-700);
 	min-height: var(--default-h);
@@ -191,15 +209,13 @@ img {
 	border-radius: var(--br-radius-xs);
 	font-size: var(--fs-xs);
 	font-weight: var(--fw-medium);
-	transition: background-color var(--t-speed) linear,
-		color var(--t-speed) cubic-bezier(0.77, 0, 0.18, 1);
-	border: 0;
-	color: var(--clr-white);
-	outline: none;
-	appearance: none;
+	transition: background-color var(--t-speed) ease, color var(--t-speed) ease;
 }
-.social-links__item:where(:hover, :focus) {
+.social-lists__item__link:where(:hover, :focus) {
 	background-color: var(--clr-primary);
 	color: var(--clr-grey-800);
-	cursor: pointer;
+}
+.social-lists__item__link:focus-visible {
+	outline: 2px solid var(--clr-primary);
+	outline-offset: 2px;
 }
