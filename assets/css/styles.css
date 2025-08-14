@@ -211,7 +211,7 @@ img {
 	font-weight: var(--fw-medium);
 	transition: background-color var(--t-speed) ease, color var(--t-speed) ease;
 }
-.social-lists__item__link:where(:hover, :focus) {
+.social-lists__item__link:is(:hover, :focus) {
 	background-color: var(--clr-primary);
 	color: var(--clr-grey-800);
 }
